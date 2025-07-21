@@ -336,6 +336,8 @@ class App(QtWidgets.QWidget):
                 "com.apple.logd_reporter.report_statistics",
                 "com.apple.system.logger",
                 "com.apple.syslogd",
+                "com.apple.trustd",
+                "com.apple.watchdogd",
         ]
 
         if self.disable_reportcrash_checkbox.isChecked():
