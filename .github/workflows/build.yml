@@ -11,7 +11,7 @@ on:
       build_for_macos_arm:
         description: 'Build macOS ARM'
         required: false
-        default: false
+        default: true
         type: boolean
 
 jobs:
