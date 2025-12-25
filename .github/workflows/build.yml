@@ -2,21 +2,9 @@ name: Build QuietDaemon
 
 on:
   workflow_dispatch:
-        inputs:
-      build_for_windows:
-        description: 'Build Windows'
-        required: false
-        default: true
-        type: boolean
-      build_for_macos_arm:
-        description: 'Build macOS ARM'
-        required: false
-        default: true
-        type: boolean
 
 jobs:
   build-windows:
-    if: ${{ github.event.inputs.build_for_windows == 'true' }}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
@@ -46,7 +34,6 @@ jobs:
           path: dist/QuietDaemon_Windows.zip
           
   build-macos-arm:
-    if: ${{ github.event.inputs.build_for_macos_arm == 'true' }}
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
