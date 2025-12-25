@@ -318,26 +318,12 @@ class App(QtWidgets.QWidget):
 
         report_crash_services = [
                 "com.apple.ReportCrash",
-                "com.apple.ReportCrash.Jetsam",
-                "com.apple.ReportMemoryException",
-                "com.apple.OTACrashCopier",
                 "com.apple.analyticsd",
-                "com.apple.aslmanager",
-                "com.apple.coresymbolicationd",
-                "com.apple.crash_mover",
-                "com.apple.crashreportcopymobile",
                 "com.apple.DumpBasebandCrash",
                 "com.apple.DumpPanic",
-                "com.apple.logd",
-                "com.apple.logd.admin",
-                "com.apple.logd.events",
-                "com.apple.logd.watchdog",
-                "com.apple.logd_reporter",
-                "com.apple.logd_reporter.report_statistics",
-                "com.apple.system.logger",
-                "com.apple.syslogd",
-                "com.apple.trustd",
-                "com.apple.watchdogd",
+                "com.apple.rtcreportingd",
+                "com.apple.spindump",
+                "com.apple.wifianalyticsd"
         ]
 
         if self.disable_reportcrash_checkbox.isChecked():
@@ -365,7 +351,7 @@ class App(QtWidgets.QWidget):
     def add_skip_setup(self, files_to_restore):
         if self.skip_setup:
             cloud_config_plist = {
-                "SkipSetup": ["WiFi", "Location", "Restore", "SIMSetup", "Android", "AppleID", "IntendedUser", "TOS", "Siri", "ScreenTime", "Diagnostics", "SoftwareUpdate", "Passcode", "Biometric", "Payment", "Zoom", "DisplayTone", "MessagingActivationUsingPhoneNumber", "HomeButtonSensitivity", "CloudStorage", "ScreenSaver", "TapToSetup", "Keyboard", "PreferredLanguage", "SpokenLanguage", "WatchMigration", "OnBoarding", "TVProviderSignIn", "TVHomeScreenSync", "Privacy", "TVRoom", "iMessageAndFaceTime", "AppStore", "Safety", "Multitasking", "ActionButton", "TermsOfAddress", "AccessibilityAppearance", "Welcome", "Appearance", "RestoreCompleted", "UpdateCompleted"],
+                "SkipSetup": ["WiFi", "Location", "Restore", "SIMSetup", "Android", "AppleID", "IntendedUser", "TOS", "Siri", "ScreenTime", "Diagnostics", "SoftwareUpdate", "Passcode", "Biometric", "Payment", "Zoom", "DisplayTone", "MessagingActivationUsingPhoneNumber", "HomeButtonSensitivity", "CloudStorage", "ScreenSaver", "TapToSetup", "Keyboard", "PreferredLanguage", "SpokenLanguage", "WatchMigration", "OnBoarding", "TVProviderSignIn", "TVHomeScreenSync", "Privacy", "TVRoom", "iMessageAndFaceTime", "AppStore", "Safety", "Multitasking", "ActionButton", "TermsOfAddress", "AccessibilityAppearance", "Welcome", "Appearance", "RestoreCompleted", "UpdateCompleted",  "Display",  "Tone",  "LanguageAndLocale",  "TouchID",  "TrueToneDisplay",  "FileVault",  "iCloudStorage",  "iCloudDiagnostics",  "Registration",  "DeviceToDeviceMigration",  "UnlockWithWatch",  "Accessibility",  "All",  "ExpressLanguage",  "Language",  "N/A",  "Region",  "Avatar",  "DeviceProtection",  "Key",  "LockdownMode",  "Wallpaper",  "PrivacySubtitle",  "SecuritySubtitle",  "DataSubtitle",  "AppleIDSubtitle",  "AppearanceSubtitle",  "PreferredLang",  "OnboardingSubtitle",  "AppleTVSubtitle",  "Intelligence",  "WebContentFiltering",  "CameraButton",  "AdditionalPrivacySettings",  "EnableLockdownMode",  "OSShowcase",  "SafetyAndHandling",  "Tips",  "AgeBasedSafetySettings"],
                 "AllowPairing": True,
                 "ConfigurationWasApplied": True,
                 "CloudConfigurationUIComplete": True,
@@ -375,8 +361,8 @@ class App(QtWidgets.QWidget):
             }
             files_to_restore.append(FileToRestore(
                 contents=plistlib.dumps(cloud_config_plist),
-                restore_path="systemgroup.com.apple.configurationprofiles/Library/ConfigurationProfiles/CloudConfigurationDetails.plist",
-                domain="SysSharedContainerDomain-."
+                restore_path="Library/ConfigurationProfiles/CloudConfigurationDetails.plist",
+                domain="SysSharedContainerDomain-systemgroup.com.apple.configurationprofiles"
             ))
             purplebuddy_plist = {
                 "SetupDone": True,
