@@ -97,7 +97,7 @@ class App(QtWidgets.QWidget):
                                 "禁用游戏守护进程",
                                 "禁用屏幕时间",
                                 "禁用日志、转储和崩溃报告",
-                                "禁用小贴士",
+                                "禁用提示",
                                 "应用更改",
                                 "刷新",
                                 "选择语言"
@@ -213,17 +213,17 @@ class App(QtWidgets.QWidget):
         self.layout.addWidget(self.disable_tipsd_checkbox)
 
         self.apply_button = QtWidgets.QPushButton(self.language_pack[self.language]["menu_options"][7])
-        self.apply_button.setStyleSheet("color: white")
+        self.apply_button.setStyleSheet("color: #3b3b3b")
         self.apply_button.clicked.connect(self.apply_changes)
         self.layout.addWidget(self.apply_button)
 
         self.refresh_button = QtWidgets.QPushButton(self.language_pack[self.language]["menu_options"][8])
-        self.refresh_button.setStyleSheet("color: white")
+        self.refresh_button.setStyleSheet("color: #3b3b3b")
         self.refresh_button.clicked.connect(self.get_device_info)
         self.layout.addWidget(self.refresh_button)
 
         self.language_menu_button = QtWidgets.QPushButton(self.language_pack[self.language]["menu_options"][9])
-        self.language_menu_button.setStyleSheet("text-align: center; color: white;") 
+        self.language_menu_button.setStyleSheet("text-align: center; color: #3b3b3b;") 
         self.language_menu = QtWidgets.QMenu()
         self.language_menu.addAction("English", lambda: self.change_language("en"))
         self.language_menu.addAction("简体中文", lambda: self.change_language("zh"))
