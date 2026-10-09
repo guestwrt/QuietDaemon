@@ -29,7 +29,7 @@ class App(QtWidgets.QWidget):
         self.thermalmonitord = False
         self.disable_ota = False
         self.disable_usage_tracking_agent = False
-        self.skip_setup = True
+        self.skip_setup = False  # 如果需要跳过开机设置，修改为 True
         self.disable_gamed = False
         self.disable_followupd = False
         self.disable_reportcrash = False
