@@ -240,7 +240,6 @@ class App(QtWidgets.QWidget):
                 "com.apple.analyticsd.admin",
                 "com.apple.analyticsd.events",
                 "com.apple.rtcreportingd",
-                "com.apple.spindump",
                 "com.apple.wifianalyticsd"
         ]
 
